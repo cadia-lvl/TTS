@@ -130,3 +130,10 @@ TODO.txt
 data/*
 notebooks/data/*
 TTS/tts/layers/glow_tts/monotonic_align/core.c
+
+
+# Specific configuration files
+config_*
+
+# Sbatch
+sbatch/
