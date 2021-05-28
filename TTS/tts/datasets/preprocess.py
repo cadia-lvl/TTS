@@ -310,6 +310,25 @@ def lobe(root_path, meta_file):
     return items
 
 
+def talromur(root_path, meta_file=None, speaker_name=None):
+    with open(os.join(root_path, "index.txt"):
+        items = []
+        for row in items:
+            recording_id, text, token_id, text_norm = row.split("\t")
+            items.append([
+                text, 
+                os.path.join(root_path, "audio", text + ".wav"), 
+                speaker_name if speaker_name else recording_id.split("-")[0],
+            ])
+        return items
+
+
+def talromur_full(root_path, meta_file=None):
+    from itertools import chain
+    from glob import glob
+    return chain(*[talromur(path) for path in glob(os.join(root_path, "*"))])
+
+
 # ======================================== VOX CELEB ===========================================
 def voxceleb2(root_path, meta_file=None):
     """
